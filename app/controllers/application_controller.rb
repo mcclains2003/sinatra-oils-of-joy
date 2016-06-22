@@ -8,7 +8,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do 
-    "Welcome to Oils of Joy"
+    erb :index
+  end
+
+  helpers do 
+
+    def logged_in?
+      "logged in"
+    end
+
+    def logout
+      session.clear
+    end
+
+    def current_user
+      "find current user"
+    end
+
   end
 
 end
