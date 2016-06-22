@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   end
 
   get 'products/new' do 
+    erb :"/products/product_new"
   end
 
 end
