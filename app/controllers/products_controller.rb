@@ -34,4 +34,11 @@ class ProductsController < ApplicationController
     redirect "/products/#{@product.id}"
   end
 
+  delete '/products/:id/delete' do 
+    @product = Product.find_by_id(params[:id])
+    @product.delete
+
+    redirect '/products'
+  end
+
 end

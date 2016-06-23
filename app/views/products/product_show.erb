@@ -1,2 +1,10 @@
-<h1><%= @product.name %></h1>
+<h1>
+  <%= @product.name %> <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+</h1>
+
 <h2><%= @product.product_type %></h2>
+
+<form method="POST" action="/products/<%= @product.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Product">
+</form>
