@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   post '/products' do
     binding.pry
+    @product = Product.create(params)
   end
 
 end

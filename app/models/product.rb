@@ -6,12 +6,12 @@ class Product < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
-  validates :type, presence: true
+  validates :product_type, presence: true
 
-  TYPES = ["cream", "oil", "scrub", "lip-balm", "spray"]
+  @@types = ["cream", "oil", "scrub", "lip-balm", "spray"]
 
   def self.types
-    TYPES
+    @@types
   end
 
 end
