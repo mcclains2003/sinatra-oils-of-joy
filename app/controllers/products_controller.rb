@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   post '/products' do
-    binding.pry
     @product = Product.create(params)
   end
 

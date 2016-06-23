@@ -1,1 +1,10 @@
 <h3>Welcome to Oils of Joy</h3>
+
+<h4>Product List</h4>
+<% @products.each do |product| %>
+  <%= product.name %>
+  <ul>
+    <li><%= product.product_type %></li>
+  </ul>
+<% end %>
+ 
