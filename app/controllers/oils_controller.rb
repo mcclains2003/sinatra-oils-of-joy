@@ -10,13 +10,12 @@ class OilsController < ApplicationController
     erb :"/oils/oil_new"
   end
 
-  # get '/oils/:id' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   erb :"/oils/oil_show"
-  # end
+  get '/oils/:id' do 
+    @oil = Oil.find_by_id(params[:id])
+    erb :"/oils/oil_show"
+  end
 
   post '/oils' do
-    binding.pry
     @oil = Oil.new
     @oil.name = params["name"]
     @oil.benefits = params["benefits"].join(", ")
@@ -25,25 +24,26 @@ class OilsController < ApplicationController
     redirect '/oils'
   end
 
-  # get '/oils/:id/edit' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   erb :"/oils/oil_edit"    
-  # end
+  get '/oils/:id/edit' do 
+    @oil = Oil.find_by_id(params[:id])
+    @benefits = @oil.benefits.split(", ")
+    erb :"/oils/oil_edit"    
+  end
 
-  # post '/oils/:id' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   @oil.name = params["name"]
-  #   @oil.oil_type = params["oil_type"]
-  #   @oil.save
+  post '/oils/:id' do 
+    @oil = Oil.find_by_id(params[:id])
+    @oil.name = params["name"]
+    @oil.benefits = params["benefits"].join(", ")
+    @oil.save
 
-  #   redirect "/oils/#{@oil.id}"
-  # end
+    redirect "/oils/#{@oil.id}"
+  end
 
-  # delete '/oils/:id/delete' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   @oil.delete
+  delete '/oils/:id/delete' do 
+    @oil = Oil.find_by_id(params[:id])
+    @oil.delete
 
-  #   redirect '/oils'
-  # end
+    redirect '/oils'
+  end
 
 end
