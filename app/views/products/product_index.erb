@@ -2,7 +2,7 @@
 
 <h4>Product List</h4>
 <% @products.each do |product| %>
-  <%= product.name %>
+  <a href="/products/<%= product.id %>"><%= product.name %></a>
   <ul>
     <li><%= product.product_type %></li>
   </ul>
