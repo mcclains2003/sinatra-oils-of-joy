@@ -6,8 +6,13 @@ class ProductsController < ApplicationController
     erb :"/products/product_index"
   end
 
-  get 'products/new' do 
+  get '/products/new' do 
+    @product_types = Product.types
     erb :"/products/product_new"
+  end
+
+  post '/products' do
+    binding.pry
   end
 
 end

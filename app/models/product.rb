@@ -8,10 +8,10 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
   validates :type, presence: true
 
-  @@types = ["cream", "oil", "scrub", "lip-balm", "spray"]
+  TYPES = ["cream", "oil", "scrub", "lip-balm", "spray"]
 
   def self.types
-    @@types
+    TYPES
   end
 
 end
