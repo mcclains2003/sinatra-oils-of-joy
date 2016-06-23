@@ -1,7 +1,15 @@
-<h3>Welcome to Oils of Joy</h3>
+<h2>Welcome to Oils of Joy</h2>
 
-<h4>Oil List</h4>
+<h2>Oil List</h2>
 <% @oils.each do |oil| %>
-  <%= oil.name %>
-  <%= oil.benefits %><br>
+
+  <h3><%= oil.name %></h3>
+  <h4>Benefits:</h4>
+
+  <ol>
+    <% oil.benefits.split(", ").each do |benefit| %>
+      <li><%= benefit %></li>
+    <% end %>
+  </ol><br>
+
 <% end %>

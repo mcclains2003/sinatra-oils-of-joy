@@ -17,7 +17,12 @@ class OilsController < ApplicationController
 
   post '/oils' do
     binding.pry
-    @oil = Oil.create(params)
+    @oil = Oil.new
+    @oil.name = params["name"]
+    @oil.benefits = params["benefits"].join(", ")
+    @oil.save
+
+    redirect '/oils'
   end
 
   # get '/oils/:id/edit' do 
