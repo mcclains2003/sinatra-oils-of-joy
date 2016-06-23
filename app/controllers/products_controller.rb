@@ -20,4 +20,18 @@ class ProductsController < ApplicationController
     @product = Product.create(params)
   end
 
+  get '/products/:id/edit' do 
+    @product = Product.find_by_id(params[:id])
+    erb :"/products/product_edit"    
+  end
+
+  post '/products/:id' do 
+    @product = Product.find_by_id(params[:id])
+    @product.name = params["name"]
+    @product.product_type = params["product_type"]
+    @product.save
+
+    redirect "/products/#{@product.id}"
+  end
+
 end
