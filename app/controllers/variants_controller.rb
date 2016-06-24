@@ -15,10 +15,10 @@ class VariantsController < ApplicationController
     erb :"/variants/variant_new"
   end
 
-  # get '/oils/:id' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   erb :"/oils/oil_show"
-  # end
+  get '/variants/:id' do 
+    @variant = Variant.find_by_id(params[:id])
+    erb :"/variants/variant_show"
+  end
 
   post '/variants' do
     @variant = Variant.create(params)
@@ -26,26 +26,26 @@ class VariantsController < ApplicationController
     redirect '/variants'
   end
 
-  # get '/oils/:id/edit' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   @benefits = @oil.benefits.split(", ")
-  #   erb :"/oils/oil_edit"    
-  # end
+  get '/variants/:id/edit' do 
+    @variant = Variant.find_by_id(params[:id])
 
-  # post '/oils/:id' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   @oil.name = params["name"]
-  #   @oil.benefits = params["benefits"].join(", ")
-  #   @oil.save
+    erb :"/variants/variant_edit"    
+  end
 
-  #   redirect "/oils/#{@oil.id}"
-  # end
+  post '/variants/:id' do 
+    @variant = Variant.find_by_id(params[:id])
+    @variant.size = params["size"]
+    @variant.cost = params["cost"]
+    @variant.save
 
-  # delete '/oils/:id/delete' do 
-  #   @oil = Oil.find_by_id(params[:id])
-  #   @oil.delete
+    redirect "/variants"
+  end
 
-  #   redirect '/oils'
-  # end
+  delete '/variants/:id/delete' do 
+    @variant = Variant.find_by_id(params[:id])
+    @variant.delete
+
+    redirect '/variants'
+  end
 
 end

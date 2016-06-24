@@ -1,0 +1,10 @@
+<h2>Edit Size</h2>
+<form method="POST" action="/variants/<%= @variant.id %>">
+  <label>Product Size: </label><br>
+  <input type="text" name="size" value="<%= @variant.size %>"><br>
+  <br>
+  <label>Cost: </label><br>
+  <input type="integer" name="cost" value="<%= @variant.cost %>"><br>
+  <br>
+  <input type="submit" value="submit">
+</form>

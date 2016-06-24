@@ -4,25 +4,72 @@
 
 <h3>Creams</h3>
 <% @creams.each do |cream| %>
-  <p><%= cream.size %> - $<%= cream.cost %> <a href="/variants/<%= cream.id %>/edit">(edit)</a></p>
-<% end %>
+  <p>
+  <%= cream.size %> - $<%= cream.cost %> 
+    <a href="/variants/<%= cream.id %>/edit">(edit)</a>
+    <form method="POST" action="/variants/<%= cream.id %>/delete">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Size">
+    </form>
+  <% end %>
+  </p>
+
 
 <h3>Oils</h3>
 <% @oils.each do |oil| %>
-  <p><%= oil.size %> - $<%= oil.cost %> <a href="/variants/<%= oil.id %>/edit">(edit)</a></p>
-<% end %>
+  <p>
+  <%= oil.size %> - $<%= oil.cost %> 
+    <a href="/variants/<%= oil.id %>/edit">(edit)</a>
+    <form method="POST" action="/variants/<%= oil.id %>/delete">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Size">
+    </form>
+  <% end %>
+  </p>
+
 
 <h3>Scrubs</h3>
 <% @scrubs.each do |scrub| %>
-  <p><%= scrub.size %> - $<%= scrub.cost %> <a href="/variants/<%= scrub.id %>/edit">(edit)</a></p>
-<% end %>
+  <p>
+  <%= scrub.size %> - $<%= scrub.cost %> 
+    <a href="/variants/<%= scrub.id %>/edit">(edit)</a>
+    <form method="POST" action="/variants/<%= scrub.id %>/delete">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Size">
+    </form>
+  <% end %>
+  </p>
+
 
 <h3>Lip-Balms</h3>
 <% @lips.each do |lip| %>
-  <p><%= lip.size %> - $<%= lip.cost %> <a href="/variants/<%= lip.id %>/edit">(edit)</a></p>
-<% end %>
+  <p>
+  <%= lip.size %> - $<%= lip.cost %> 
+    <a href="/variants/<%= lip.id %>/edit">(edit)</a>
+    <form method="POST" action="/variants/<%= lip.id %>/delete">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Size">
+    </form>
+  <% end %>
+  </p>
+
 
 <h3>Sprays</h3>
 <% @sprays.each do |spray| %>
-  <p><%= spray.size %> - $<%= spray.cost %> <a href="/variants/<%= spray.id %>/edit">(edit)</a></p>
-<% end %>
+  <p>
+  <%= spray.size %> - $<%= spray.cost %> 
+    <a href="/variants/<%= spray.id %>/edit">(edit)</a>
+    <form method="POST" action="/variants/<%= spray.id %>/delete">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Size">
+    </form>
+  <% end %>
+  </p>
+
+
+
+
+
+
+
+

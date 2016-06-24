@@ -1,9 +1,15 @@
-<h3>Welcome to Oils of Joy</h3>
+<h2>Welcome to Oils of Joy</h2>
 
-<h4>Product List</h4>
+<h3>Product List</h3>
 <% @products.each do |product| %>
-  <a href="/products/<%= product.id %>"><%= product.name %></a>
-  <ul>
-    <li><%= product.product_type %></li>
-  </ul>
+    <h4 style="margin-left:2em">
+      <a href="/products/<%= product.id %>"><%= product.name %></a> 
+      (<%= product.product_type %>)
+    </h4>
+    
+  <% product.oils.each do |oil|%>
+    <ul>
+      <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+    </ul>
+  <% end %>
 <% end %>
