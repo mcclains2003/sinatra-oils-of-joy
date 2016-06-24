@@ -6,6 +6,7 @@ end
 
 use Rack::MethodOverride
 
+use VariantsController
 use OilsController
 use ProductsController
 run ApplicationController

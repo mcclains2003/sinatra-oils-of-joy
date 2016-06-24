@@ -1,0 +1,28 @@
+<h2>Welcome to Oils of Joy</h2>
+
+<h2>Size and Price Options <a href="/variants/new">(Add New Size)</a></h2>
+
+<h3>Creams</h3>
+<% @creams.each do |cream| %>
+  <p><%= cream.size %> - $<%= cream.cost %></p>
+<% end %>
+
+<h3>Oils</h3>
+<% @oils.each do |oil| %>
+  <p><%= oil.size %> - $<%= oil.cost %> <a href="/variants/<%= oil.id %>/edit">(edit)</a></p>
+<% end %>
+
+<h3>Scrubs</h3>
+<% @scrubs.each do |scrub| %>
+  <p><%= scrub.size %> - $<%= scrub.cost %></p>
+<% end %>
+
+<h3>Lip-Balms</h3>
+<% @lips.each do |lip| %>
+  <p><%= lip.size %> - $<%= lip.cost %></p>
+<% end %>
+
+<h3>Sprays</h3>
+<% @sprays.each do |spray| %>
+  <p><%= spray.size %> - $<%= spray.cost %></p>
+<% end %>
