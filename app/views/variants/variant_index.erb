@@ -4,7 +4,7 @@
 
 <h3>Creams</h3>
 <% @creams.each do |cream| %>
-  <p><%= cream.size %> - $<%= cream.cost %></p>
+  <p><%= cream.size %> - $<%= cream.cost %> <a href="/variants/<%= cream.id %>/edit">(edit)</a></p>
 <% end %>
 
 <h3>Oils</h3>
@@ -14,15 +14,15 @@
 
 <h3>Scrubs</h3>
 <% @scrubs.each do |scrub| %>
-  <p><%= scrub.size %> - $<%= scrub.cost %></p>
+  <p><%= scrub.size %> - $<%= scrub.cost %> <a href="/variants/<%= scrub.id %>/edit">(edit)</a></p>
 <% end %>
 
 <h3>Lip-Balms</h3>
 <% @lips.each do |lip| %>
-  <p><%= lip.size %> - $<%= lip.cost %></p>
+  <p><%= lip.size %> - $<%= lip.cost %> <a href="/variants/<%= lip.id %>/edit">(edit)</a></p>
 <% end %>
 
 <h3>Sprays</h3>
 <% @sprays.each do |spray| %>
-  <p><%= spray.size %> - $<%= spray.cost %></p>
+  <p><%= spray.size %> - $<%= spray.cost %> <a href="/variants/<%= spray.id %>/edit">(edit)</a></p>
 <% end %>
