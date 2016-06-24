@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
   get '/products' do 
-    @products = Product.all
+    @creams = Product.all.select{|product| product.product_type == "cream"}
+    @oils = Product.all.select{|product| product.product_type == "oil"}
+    @scrubs = Product.all.select{|product| product.product_type == "scrub"}
+    @lips = Product.all.select{|product| product.product_type == "lip-balm"}
+    @sprays = Product.all.select{|product| product.product_type == "spray"}
 
     erb :"/products/product_index"
   end

@@ -16,7 +16,7 @@
     </ul>
   <% end %>
 
-<form method="POST" action="/products/<%= @product.id %>/delete">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Product">
-</form>
+  <form method="POST" action="/products/<%= @product.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Product"> | <a href="/products">All Products</a>
+  </form>

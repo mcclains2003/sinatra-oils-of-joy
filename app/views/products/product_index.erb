@@ -1,13 +1,43 @@
 <h2>Welcome to Oils of Joy</h2>
 
-<h3>Product List</h3>
-<% @products.each do |product| %>
+<h3>Product List <a href="/products/new">(add new product)</a></h3>
+
+<h3>Cream Products:</h3>
+<% @creams.each do |cream| %>
     <h4 style="margin-left:2em">
-      <a href="/products/<%= product.id %>"><%= product.name %></a> 
-      (<%= product.product_type %>)
+      <a href="/products/<%= cream.id %>"><%= cream.name %></a> 
+      (<%= cream.product_type %>)
     </h4>
-    
-  <% product.oils.each do |oil|%>
+
+  <% cream.oils.each do |oil|%>
+    <ul>
+      <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h3>Oil Products:</h3>
+<% @oils.each do |oil| %>
+    <h4 style="margin-left:2em">
+      <a href="/products/<%= oil.id %>"><%= oil.name %></a> 
+      (<%= oil.product_type %>)
+    </h4>
+
+  <% oil.oils.each do |oil|%>
+    <ul>
+      <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h3>Scrub Products:</h3>
+<% @scrubs.each do |scrub| %>
+    <h4 style="margin-left:2em">
+      <a href="/products/<%= scrub.id %>"><%= scrub.name %></a> 
+      (<%= scrub.product_type %>)
+    </h4>
+
+  <% scrub.oils.each do |oil|%>
     <ul>
       <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
     </ul>
