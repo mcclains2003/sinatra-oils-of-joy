@@ -43,3 +43,31 @@
     </ul>
   <% end %>
 <% end %>
+
+<h3>Lip-Balm Products:</h3>
+<% @lips.each do |lip| %>
+    <h4 style="margin-left:2em">
+      <a href="/products/<%= lip.id %>"><%= lip.name %></a> 
+      (<%= lip.product_type %>)
+    </h4>
+
+  <% lip.oils.each do |oil|%>
+    <ul>
+      <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h3>Spray Products:</h3>
+<% @sprays.each do |spray| %>
+    <h4 style="margin-left:2em">
+      <a href="/products/<%= spray.id %>"><%= spray.name %></a> 
+      (<%= spray.product_type %>)
+    </h4>
+
+  <% spray.oils.each do |oil|%>
+    <ul>
+      <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+    </ul>
+  <% end %>
+<% end %>
