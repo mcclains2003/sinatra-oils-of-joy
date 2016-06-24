@@ -13,11 +13,16 @@ class ProductsController < ApplicationController
 
   get '/products/:id' do 
     @product = Product.find_by_id(params[:id])
+    @oils = @product.oils
+    @variants = @product.variants
+    
     erb :"/products/product_show"
   end
 
   post '/products' do
     @product = Product.create(params["product"])
+
+    redirect "/products/#{@product.id}"
   end
 
   get '/products/:id/edit' do 
@@ -30,6 +35,7 @@ class ProductsController < ApplicationController
     @product.name = params["product"]["name"]
     @product.product_type = params["product"]["product_type"]
     @product.oil_ids = params["product"]["oil_ids"]
+    @product.variant_ids = params["product"]["variant_ids"]
     @product.save
 
     redirect "/products/#{@product.id}"

@@ -1,8 +1,20 @@
 <h1>
-  <%= @product.name %> <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+  <%= @product.name %> (<%= @product.product_type %>) <a href="/products/<%= @product.id %>/edit">(Edit)</a>
 </h1>
 
-<h2><%= @product.product_type %></h2>
+<h2>Oils:</h2>
+  <% @oils.each do |oil| %>
+    <ul>
+      <li><%= oil.name %></li>
+    </ul>
+  <% end %>
+
+<h2>Sizes:</h2>
+  <% @variants.each do |variant| %>
+    <ul>
+      <li><%= variant.size %> - ($<%= variant.cost %>)</li>
+    </ul>
+  <% end %>
 
 <form method="POST" action="/products/<%= @product.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
