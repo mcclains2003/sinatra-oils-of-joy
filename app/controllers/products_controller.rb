@@ -1,4 +1,7 @@
+require 'sinatra/flash'
+
 class ProductsController < ApplicationController
+  register Sinatra::Flash
 
   get '/products' do 
     @creams = Product.all.select{|product| product.product_type == "cream"}
@@ -62,9 +65,15 @@ class ProductsController < ApplicationController
 
   delete '/products/:id/delete' do 
     @product = Product.find_by_id(params[:id])
-    @product.delete
+    if logged_in? && @product.user_id == current_user.id
+      @product.delete
 
-    redirect '/products'
+      redirect '/products'
+    else
+      flash[:message] = "You do not have access to delete this item"
+
+      redirect "/products/#{@product.id}"
+    end
   end
 
 end

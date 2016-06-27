@@ -1,5 +1,12 @@
+<% if flash(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>
-  <%= @product.name %> (<%= @product.product_type %>) <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+  <%= @product.name %> (<%= @product.product_type %>) 
+  <% if session["user_id"] == @product.user_id %>
+    <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+  <% end %>
 </h1>
 
 <h2>Oils:</h2>
