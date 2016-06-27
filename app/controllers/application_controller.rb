@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def logged_in?
-      "logged in"
+      !!session[:user_id]
     end
 
     def logout
@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      "find current user"
+      User.find(session[:user_id])
     end
 
   end

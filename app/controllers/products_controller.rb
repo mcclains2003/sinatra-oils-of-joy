@@ -12,7 +12,11 @@ class ProductsController < ApplicationController
 
   get '/products/new' do 
     @product_types = Product.types
-    erb :"/products/product_new"
+    if logged_in?
+      erb :"/products/product_new"
+    else
+      redirect '/login'
+    end
   end
 
   get '/products/:id' do 
@@ -24,14 +28,25 @@ class ProductsController < ApplicationController
   end
 
   post '/products' do
-    @product = Product.create(params["product"])
+    if params["product"]["name"] == "" || !params["product"]["product_type"]
 
-    redirect "/products/#{@product.id}"
+      redirect "/products/new"
+    else
+      @product = Product.create(params["product"])
+      @product.user_id = current_user.id
+      @product.save
+
+      redirect "/products/#{@product.id}"
+    end
   end
 
   get '/products/:id/edit' do 
     @product = Product.find_by_id(params[:id])
-    erb :"/products/product_edit"    
+    if logged_in? && @product.user_id == current_user.id
+      erb :"/products/product_edit"
+    else
+      redirect '/login'
+    end
   end
 
   post '/products/:id' do 
