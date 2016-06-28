@@ -26,8 +26,12 @@ class OilsController < ApplicationController
 
   get '/oils/:id/edit' do 
     @oil = Oil.find_by_id(params[:id])
-    @benefits = @oil.benefits.split(", ")
-    erb :"/oils/oil_edit"    
+    if logged_in?
+      @benefits = @oil.benefits.split(", ")
+      erb :"/oils/oil_edit"
+    else
+      redirect "/oils/#{@oil.id}"
+    end
   end
 
   post '/oils/:id' do 

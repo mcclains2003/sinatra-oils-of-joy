@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do 
-    "Oils of Joy"
+    erb :index
   end
 
   helpers do 
