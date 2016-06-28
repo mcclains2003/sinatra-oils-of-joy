@@ -9,19 +9,38 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav align="center">
-    <h1>Oils of Joy</h1>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Oils of Joy</h1>
+      <p>Welcome to Oils Of Joy!!! Here you’ll find a variety of my home-made bath  and shower scrubs, hand creams, body oils and so much more all made with Pure Essential Oils!</p>
+    </div>
+  </div>
 
-    <% if logged_in? %>
-        <a href="/logout"> Log Out </a>
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Menu</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/products">All Products</a></li>
+          <li><a href="Oils">All Oils</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <% else %>
+            <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-    <% else %>
-      <a href="/signup">Sign Up</a> |
-      <a href="/login"> Login </a>
-    <%end %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-  </nav>
-
-  <%= yield %>
 </body>
 </html>
