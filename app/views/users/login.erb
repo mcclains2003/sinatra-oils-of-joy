@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Login to Oils of Joy!</h1>
   <% if flash(:message) %>
-    <%= flash[:message] %>
+    <p class="text-danger"><%= flash[:message] %></p>
   <% end %>
   <form method="post" action="/login">
     <input type="text" name="username" placeholder="Username:">
