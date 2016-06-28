@@ -41,9 +41,12 @@ class OilsController < ApplicationController
 
   delete '/oils/:id/delete' do 
     @oil = Oil.find_by_id(params[:id])
-    @oil.delete
-
-    redirect '/oils'
+    if logged_in?
+      @oil.delete
+      redirect '/oils'
+    else
+      redirect "/oils/#{@oil.id}"
+    end
   end
 
 end
