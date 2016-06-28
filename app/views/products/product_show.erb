@@ -3,12 +3,12 @@
     <h4 class="text-danger"><%= flash[:message] %></h4>
   <% end %>
 
-  <h1>
+  <h2>
     <%= @product.name %> (<%= @product.product_type %>) 
     <% if session["user_id"] == @product.user_id %>
-      <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+      <a href="/products/<%= @product.id %>/edit" class="btn btn-default" role="button">Edit</a>
     <% end %>
-  </h1>
+  </h12>
 
   <h2>Oils:</h2>
     <% @oils.each do |oil| %>

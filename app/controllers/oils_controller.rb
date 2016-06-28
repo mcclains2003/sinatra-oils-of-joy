@@ -1,4 +1,7 @@
+require 'sinatra/flash'
+
 class OilsController < ApplicationController
+  register Sinatra::Flash
 
   get '/oils' do 
     @oils = Oil.all
@@ -16,12 +19,17 @@ class OilsController < ApplicationController
   end
 
   post '/oils' do
-    @oil = Oil.new
-    @oil.name = params["name"]
-    @oil.benefits = params["benefits"].join(", ")
-    @oil.save
+    if !!params["name"] || !!params["benefits"]
+      flash[:message] = "Your oil did not save because one or more required fields were missing"
+      redirect '/oils/new'
+    else
+      @oil = Oil.new
+      @oil.name = params["name"]
+      @oil.benefits = params["benefits"].join(", ")
+      @oil.save
 
-    redirect '/oils'
+      redirect '/oils'
+    end
   end
 
   get '/oils/:id/edit' do 
@@ -49,6 +57,7 @@ class OilsController < ApplicationController
       @oil.delete
       redirect '/oils'
     else
+      flash[:message] = "You do not have access to delete this item"
       redirect "/oils/#{@oil.id}"
     end
   end

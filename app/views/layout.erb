@@ -31,6 +31,7 @@
               <li><a href="/products/new">Add New Product</a></li>
             <% end %>
           </ul>
+
           </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/products">Oils <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -40,6 +41,16 @@
             <% end %>
           </ul>
           </li>
+
+          <% if logged_in? && current_user.username == "shaun" %>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/variants">Size and Cost <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/variants">Variant List</a></li>
+                <li><a href="/variants/new">Add New Size</a></li>
+            </ul>
+            </li>
+          <% end %>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

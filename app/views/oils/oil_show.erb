@@ -1,4 +1,8 @@
 <div class="well">
+  <% if flash(:message) %>
+    <h4 class="text-danger"><%= flash[:message] %></h4>
+  <% end %>
+  
   <h2><%= @oil.name %> Oil <a href="/oils/<%= @oil.id %>/edit" class="btn btn-default" role="button">Edit</a></h2>
   <h4>Benefits:</h4>
   <ol>
