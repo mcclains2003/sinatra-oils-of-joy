@@ -19,7 +19,7 @@ class OilsController < ApplicationController
   end
 
   post '/oils' do
-    if !!params["name"] || !!params["benefits"]
+    if params["name"] == "" || params["benefits"].first == ""
       flash[:message] = "Your oil did not save because one or more required fields were missing"
       redirect '/oils/new'
     else

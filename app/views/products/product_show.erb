@@ -13,7 +13,7 @@
   <h2>Oils:</h2>
     <% @oils.each do |oil| %>
       <ul>
-        <li><%= oil.name %></li>
+        <li><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
       </ul>
     <% end %>
 
