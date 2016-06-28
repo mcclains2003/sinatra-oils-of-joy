@@ -1,14 +1,13 @@
-<% if flash(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<div class="well" align="center">
+  <% if flash(:message) %>
+    <h4 class="text-danger"><%= flash[:message] %></h4>
+  <% end %>
 
-<br>
-<div align="center">
-
-  <h3>Sign Up</h3>
+  <h1>Sign Up</h1>
   <form action="/signup" method="POST">
-    <p>Username: <input type="text" name="username"></p>
-    <p>Password: <input type="password" name="password"></p>
+    <p><input type="text" name="username" placeholder="Username:"></p>
+    <p><input type="password" name="password" placeholder="Password:"></p>
+
     <input type="submit" value="submit">
   </form>
 </div>

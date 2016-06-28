@@ -1,81 +1,87 @@
-<h2>Product List <a href="/products/new">(add new product)</a></h2>
+<div class="well">
+  <h2>Product List
+    <% if logged_in? %> 
+      <a href="/products/new">(add new product)</a>
+    <% end %>
+  </h2>
 
-<% if !@creams.empty? %>
-  <h3>Cream Products:</h3>
-  <% @creams.each do |cream| %>
-      <h4 style="margin-left:2em">
-        <a href="/products/<%= cream.id %>"><%= cream.name %></a> 
-        (<%= cream.product_type %>)
-      </h4>
+  <% if !@creams.empty? %>
+    <h3>Cream Products:</h3>
+    <% @creams.each do |cream| %>
+        <h4 style="margin-left:2em">
+          <a href="/products/<%= cream.id %>"><%= cream.name %></a> 
+          (<%= cream.product_type %>)
+        </h4>
 
-    <% cream.oils.each do |oil|%>
-      <ul>
-        <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
-      </ul>
+      <% cream.oils.each do |oil|%>
+        <ul>
+          <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<% if !@oils.empty? %>
-  <h3>Oil Products:</h3>
-  <% @oils.each do |oil| %>
-      <h4 style="margin-left:2em">
-        <a href="/products/<%= oil.id %>"><%= oil.name %></a> 
-        (<%= oil.product_type %>)
-      </h4>
+  <% if !@oils.empty? %>
+    <h3>Oil Products:</h3>
+    <% @oils.each do |oil| %>
+        <h4 style="margin-left:2em">
+          <a href="/products/<%= oil.id %>"><%= oil.name %></a> 
+          (<%= oil.product_type %>)
+        </h4>
 
-    <% oil.oils.each do |oil|%>
-      <ul>
-        <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
-      </ul>
+      <% oil.oils.each do |oil|%>
+        <ul>
+          <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<% if !@scrubs.empty? %>
-  <h3>Scrub Products:</h3>
-  <% @scrubs.each do |scrub| %>
-      <h4 style="margin-left:2em">
-        <a href="/products/<%= scrub.id %>"><%= scrub.name %></a> 
-        (<%= scrub.product_type %>)
-      </h4>
+  <% if !@scrubs.empty? %>
+    <h3>Scrub Products:</h3>
+    <% @scrubs.each do |scrub| %>
+        <h4 style="margin-left:2em">
+          <a href="/products/<%= scrub.id %>"><%= scrub.name %></a> 
+          (<%= scrub.product_type %>)
+        </h4>
 
-    <% scrub.oils.each do |oil|%>
-      <ul>
-        <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
-      </ul>
+      <% scrub.oils.each do |oil|%>
+        <ul>
+          <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<% if !@lips.empty? %>
-  <h3>Lip-Balm Products:</h3>
-  <% @lips.each do |lip| %>
-      <h4 style="margin-left:2em">
-        <a href="/products/<%= lip.id %>"><%= lip.name %></a> 
-        (<%= lip.product_type %>)
-      </h4>
+  <% if !@lips.empty? %>
+    <h3>Lip-Balm Products:</h3>
+    <% @lips.each do |lip| %>
+        <h4 style="margin-left:2em">
+          <a href="/products/<%= lip.id %>"><%= lip.name %></a> 
+          (<%= lip.product_type %>)
+        </h4>
 
-    <% lip.oils.each do |oil|%>
-      <ul>
-        <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
-      </ul>
+      <% lip.oils.each do |oil|%>
+        <ul>
+          <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<% if !@sprays.empty? %>
-  <h3>Spray Products:</h3>
-  <% @sprays.each do |spray| %>
-      <h4 style="margin-left:2em">
-        <a href="/products/<%= spray.id %>"><%= spray.name %></a> 
-        (<%= spray.product_type %>)
-      </h4>
+  <% if !@sprays.empty? %>
+    <h3>Spray Products:</h3>
+    <% @sprays.each do |spray| %>
+        <h4 style="margin-left:2em">
+          <a href="/products/<%= spray.id %>"><%= spray.name %></a> 
+          (<%= spray.product_type %>)
+        </h4>
 
-    <% spray.oils.each do |oil|%>
-      <ul>
-        <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
-      </ul>
+      <% spray.oils.each do |oil|%>
+        <ul>
+          <li style="margin-left:2em"><a href="/oils/<%= oil.id %>"><%= oil.name %></a></li>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>

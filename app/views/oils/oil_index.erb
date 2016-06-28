@@ -1,10 +1,13 @@
-<h2>Welcome to Oils of Joy</h2>
+<div class="well">
+  <h2>Oil List 
+    <% if logged_in? %>
+      <a href="/oils/new">(Create New Oil)</a>
+    <% end %>
+  </h2>
 
-<h2>Oil List <a href="/oils/new">(Create New Oil)</a></h2>
-<% @oils.each do |oil| %>
+  <% @oils.each do |oil| %>
 
-  <h4><a href="/oils/<%= oil.id %>"><%= oil.name %></a></h3>
+    <h4><a href="/oils/<%= oil.id %>"><%= oil.name %></a></h4>
 
-<% end %>
-
-<a href="/products">All Products</a>
+  <% end %>
+</div>

@@ -1,29 +1,31 @@
-<% if flash(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
-<h1>
-  <%= @product.name %> (<%= @product.product_type %>) 
-  <% if session["user_id"] == @product.user_id %>
-    <a href="/products/<%= @product.id %>/edit">(Edit)</a>
-  <% end %>
-</h1>
-
-<h2>Oils:</h2>
-  <% @oils.each do |oil| %>
-    <ul>
-      <li><%= oil.name %></li>
-    </ul>
+<div class="well"> 
+  <% if flash(:message) %>
+    <h4 class="text-danger"><%= flash[:message] %></h4>
   <% end %>
 
-<h2>Sizes:</h2>
-  <% @variants.each do |variant| %>
-    <ul>
-      <li><%= variant.size %> - ($<%= variant.cost %>)</li>
-    </ul>
-  <% end %>
+  <h1>
+    <%= @product.name %> (<%= @product.product_type %>) 
+    <% if session["user_id"] == @product.user_id %>
+      <a href="/products/<%= @product.id %>/edit">(Edit)</a>
+    <% end %>
+  </h1>
+
+  <h2>Oils:</h2>
+    <% @oils.each do |oil| %>
+      <ul>
+        <li><%= oil.name %></li>
+      </ul>
+    <% end %>
+
+  <h2>Sizes:</h2>
+    <% @variants.each do |variant| %>
+      <ul>
+        <li><%= variant.size %> - ($<%= variant.cost %>)</li>
+      </ul>
+    <% end %>
 
   <form method="POST" action="/products/<%= @product.id %>/delete">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Product"> | <a href="/products">All Products</a>
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Product">
   </form>
+</div>

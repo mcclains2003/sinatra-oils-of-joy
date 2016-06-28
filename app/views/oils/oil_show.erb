@@ -1,6 +1,5 @@
-<h2>Welcome to Oils of Joy</h2>
-
-  <h2><%= @oil.name %> Oil <a href="/oils/<%= @oil.id %>/edit">(edit)</a></h2>
+<div class="well">
+  <h2><%= @oil.name %> Oil <a href="/oils/<%= @oil.id %>/edit" class="btn btn-default" role="button">Edit</a></h2>
   <h4>Benefits:</h4>
   <ol>
     <% @oil.benefits.split(", ").each do |benefit| %>
@@ -10,5 +9,6 @@
 
   <form method="POST" action="/oils/<%= @oil.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Oil"> | <a href="/products">All Products</a>
+    <input type="submit" value="Delete Oil">
   </form>
+</div>

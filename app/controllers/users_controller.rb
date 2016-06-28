@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   post '/signup' do 
     if params[:username] == "" || params[:password] == ""
+      flash[:message] = "Please check to make sure you have a username or password"
       redirect to '/signup'
     else
       @user = User.new(:username => params[:username], :password => params[:password])

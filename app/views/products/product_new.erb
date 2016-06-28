@@ -1,35 +1,37 @@
-<h2>Create a new Product</h2>
-<form method="POST" action="/products">
-  <label>Product Name: </label>
-  <input type="text" name="product[name]"><br>
-  <br>
+<div class="well">
+  <h2>Create a new Product</h2>
+  <form method="POST" action="/products">
+    <label>Product Name: </label>
+    <input type="text" name="product[name]"><br>
+    <br>
 
-  <label>Product Type: </label><br>
-  <% Product.types.each do |type| %>
-    <input type="checkbox" name="product[product_type]" value="<%= type %>"> 
-      <%= type %>  
-    </input><br>
-  <% end %>
+    <label>Product Type: </label><br>
+    <% Product.types.each do |type| %>
+      <input type="checkbox" name="product[product_type]" value="<%= type %>"> 
+        <%= type %>  
+      </input><br>
+    <% end %>
 
-  <br>
+    <br>
 
-  <label>Oil(s): </label><br>
-  <% Oil.all.each do |oil| %>
-    <input type="checkbox" name="product[oil_ids][]" value="<%= oil.id %>" id="<%= oil.id %>" > 
-      <%= oil.name %>
-    </input><br>
-  <% end %>
+    <label>Oil(s): </label><br>
+    <% Oil.all.each do |oil| %>
+      <input type="checkbox" name="product[oil_ids][]" value="<%= oil.id %>" id="<%= oil.id %>" > 
+        <%= oil.name %>
+      </input><br>
+    <% end %>
 
-  <br>
+    <br>
 
-  <label>Size: </label><br>
-  <% Variant.all.each do |variant| %>
-    <input type="checkbox" name="product[variant_ids][]" value="<%= variant.id %>" id="<%= variant.id %>" > 
-      <%= variant.size %> ($<%= variant.cost %>)
-    </input><br>
-  <% end %>  
+    <label>Size: </label><br>
+    <% Variant.all.each do |variant| %>
+      <input type="checkbox" name="product[variant_ids][]" value="<%= variant.id %>" id="<%= variant.id %>" > 
+        <%= variant.size %> ($<%= variant.cost %>)
+      </input><br>
+    <% end %>  
 
-  <br>
-  
-  <input type="submit" value="submit">
-</form>
+    <br>
+    
+    <input type="submit" value="submit">
+  </form>
+</div>

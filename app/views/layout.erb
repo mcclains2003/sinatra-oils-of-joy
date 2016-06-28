@@ -22,10 +22,26 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">Menu</a>
         </div>
+        
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/products">All Products</a></li>
-          <li><a href="Oils">All Oils</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/products">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/products">Product List</a></li>
+            <% if logged_in? %>
+              <li><a href="/products/new">Add New Product</a></li>
+            <% end %>
+          </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/products">Oils <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/oils">Oil List</a></li>
+            <% if logged_in? %>
+              <li><a href="/oils/new">Add New Oil</a></li>
+            <% end %>
+          </ul>
+          </li>
         </ul>
+
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
