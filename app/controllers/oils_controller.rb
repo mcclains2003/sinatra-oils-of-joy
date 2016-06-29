@@ -34,7 +34,7 @@ class OilsController < ApplicationController
 
   get '/oils/:id/edit' do 
     @oil = Oil.find_by_id(params[:id])
-    if logged_in?
+    if admin?
       @benefits = @oil.benefits.split(", ")
       erb :"/oils/oil_edit"
     else
@@ -53,7 +53,7 @@ class OilsController < ApplicationController
 
   delete '/oils/:id/delete' do 
     @oil = Oil.find_by_id(params[:id])
-    if logged_in?
+    if admin?
       @oil.delete
       redirect '/oils'
     else

@@ -42,7 +42,7 @@
           </ul>
           </li>
 
-          <% if logged_in? && current_user.username == "shaun" %>
+          <% if admin? %>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/variants">Size and Cost <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/variants">Variant List</a></li>

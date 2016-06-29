@@ -24,6 +24,10 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def admin?
+      logged_in? && current_user.username == "admin"
+    end
+
   end
 
 end

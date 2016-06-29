@@ -1,4 +1,8 @@
 <div class="well">
+  <% if flash(:message) %>
+    <h4 class="text-danger"><%= flash[:message] %></h4>
+  <% end %>
+  
   <h2>Product List</h2>
 
   <% if !@creams.empty? %>

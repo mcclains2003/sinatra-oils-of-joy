@@ -1,4 +1,7 @@
+require 'sinatra/flash'
+
 class VariantsController < ApplicationController
+  register Sinatra::Flash
 
   get '/variants' do 
     @variants = Variant.all
@@ -12,7 +15,11 @@ class VariantsController < ApplicationController
   end
 
   get '/variants/new' do 
-    erb :"/variants/variant_new"
+    if admin?
+      erb :"/variants/variant_new"
+    else
+      flash[:message] = "You do not have access to this page"
+    end
   end
 
   get '/variants/:id' do 
@@ -27,9 +34,14 @@ class VariantsController < ApplicationController
   end
 
   get '/variants/:id/edit' do 
-    @variant = Variant.find_by_id(params[:id])
+    if admin?
+      @variant = Variant.find_by_id(params[:id])
+      erb :"/variants/variant_edit"
+    else
+      flash[:message] = "You do not have access to this page"
 
-    erb :"/variants/variant_edit"    
+      redirect '/variants'
+    end
   end
 
   post '/variants/:id' do 
@@ -43,11 +55,12 @@ class VariantsController < ApplicationController
 
   delete '/variants/:id/delete' do 
     @variant = Variant.find_by_id(params[:id])
-    if logged_in?
+    if admin?
       @variant.delete
       redirect '/variants'
     else
-      redirect '/login'
+      flash[:message] = "You do not have access to delete this"
+      redirect '/variants'
     end
   end
 
