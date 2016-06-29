@@ -43,9 +43,12 @@ class VariantsController < ApplicationController
 
   delete '/variants/:id/delete' do 
     @variant = Variant.find_by_id(params[:id])
-    @variant.delete
-
-    redirect '/variants'
+    if logged_in?
+      @variant.delete
+      redirect '/variants'
+    else
+      redirect '/login'
+    end
   end
 
 end
